@@ -1,0 +1,19 @@
+{
+    "name_suffix": "infrastructure",
+    "service_stack": true,
+    "template": Xinfrastructure,
+    "parameters": {
+        "ProjectName": "XProjectName",
+        "SlaveSecurityGroup" : "XSlaveSecurityGroup",
+        "ComponentName" : "XComponentName",
+        "Environment" : "XEnvironment",
+        "VpcId" : "XVpcId",
+        "KeyName" : "XKeyName",
+        "BastionAccessSecurityGroup" : "XBastionAccessSecurityGroup",
+        "InstanceType" : "XInstanceType",
+        "ImageId" : "XImageId",
+        "ScalingMinInstances" : "XScalingMinInstances",
+        "ScalingMaxInstances" : "XScalingMaxInstances",
+        "PrivateSubnets" : "XPrivateSubnets"
+    }
+}
