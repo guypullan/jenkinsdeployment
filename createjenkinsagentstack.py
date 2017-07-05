@@ -1,11 +1,5 @@
 #!python
 
-# test code to prove principal from website example
-#url = "http://localhost:8080"
-#data = {'sender': 'Alice', 'receiver': 'Bob', 'message': 'We did it!'}
-#headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-#r = requests.post(url, data=json.dumps(data), headers=headers)
-
 import requests
 import json
 
@@ -27,23 +21,26 @@ with open ("infrastructure.json") as myfile:
 # the variable infrastructure is forwarding the cloudstack formation to this request
 device_values = {
     'XBastionAccessSecurityGroup': 'sg-acf510d4',
-    'XComponentName': 'news-tools-dev-jenkins-agents',
+    'XComponentName': 'news-tools-test-jenkins-agents',
     'Xinfrastructure': infrastructure,
-    'XEnvironment': 'int',
-    'XImageId': 'ami-badd3ec3',
+    'XEnvironment': 'test',
+    'XImageId': 'ami-1a51b763',
     'XInstanceType': 't2.micro',
     'XKeyName': 'cosmos',
     'XPrivateSubnets': 'subnet-a914c9ce,subnet-cbcf1482,subnet-8de2fbd5',
     'XProjectName': 'news-devops-toolchain',
     'XScalingMaxInstances': '1',
     'XScalingMinInstances': '1',
-    'XSlaveSecurityGroup': 'sg-c5de27bd',
+    'XSlaveSecurityGroup': 'sg-04985e7c',
     'XVpcId': 'vpc-f2ee3095',
-    'Xcomponent': 'ComponentName',
-    'Xstack': 'Environment',
+    'Xaws_account_id': '329802642264',
+    'Xaws_region': 'eu-west-1'
+#    'Xcomponent': 'ComponentName',
+#    'Xstack': 'Environment',
 }
 
 url = "https://api.live.bbc.co.uk/cosmos/env/{XEnvironment}/component/{XComponentName}/stacks/create".format(**device_values)
+#url = "https://httpbin.org/post"
 
 # replace values in wrapper with values as assigned in device_values
 for key,val in device_values.items():
@@ -52,8 +49,11 @@ for key,val in device_values.items():
 certificate = (cert_file_path, key_file_path)
 
 print url
-print wrapper
+#print wrapper
 
 # send request to cosmos to create new stack
-r = requests.post(url, data=json.dumps(wrapper), cert=certificate, headers=headers)
+r = requests.post(url, data=(wrapper), cert=certificate, headers=headers)
+
+#print r.content
+print r.status_code
 print r

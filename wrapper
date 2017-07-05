@@ -1,5 +1,7 @@
 {
-    "name_suffix": "infrastructure",
+    "name_suffix": "XProjectName",
+    "aws_account_id": "Xaws_account_id",
+    "region": "Xaws_region",
     "service_stack": true,
     "template": Xinfrastructure,
     "parameters": {
