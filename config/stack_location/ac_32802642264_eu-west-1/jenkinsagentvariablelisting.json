@@ -1,0 +1,19 @@
+{
+  "XComponentName": "news-tools-test-jenkins-agents",
+  "XProjectName": "news-devops-toolchain",
+  "XBastionAccessSecurityGroup": "sg-acf510d4",
+  "XEnvironment": "test",
+  "XImageId": "ami-1a51b763",
+  "XInstanceType": "t2.micro",
+  "XKeyName": "cosmos",
+  "XPrivateSubnets": "subnet-a914c9ce,subnet-cbcf1482,subnet-8de2fbd5",
+  "XScalingMaxInstances": "1",
+  "XScalingMinInstances": "1",
+  "XSlaveSecurityGroup": "sg-04985e7c",
+  "XVpcId": "vpc-f2ee3095",
+  "Xaws_account_id": "329802642264",
+  "Xaws_region": "eu-west-1",
+  "cloudwatch_log_group_name": "blah",
+  "docker_registry_hostname": "blah2",
+  "jenkins_master_internal_hostname": "blah3"
+}
